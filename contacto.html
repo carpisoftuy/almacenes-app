@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="shortcut icon" href="./img/carpifast.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/fuentes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/contacto.css">
+</head>
+<body>
+    
+    <nav class="ourNavbar">
+
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <img class="hamburguesa" id="hamburguesa" src="./img/list.svg">
+        </label>
+        <h2 class="titulo">CARPIFAST</h2>
+        <a href="./index.html"><img class="logo-menu-hamburguesa" src="./img/carpifast.svg"></a>
+
+        <ul class="nav-list">
+            <li class="list-element-logo"><a href="./index.html"><img class="logo" src="./img/carpifast.svg"></a></li>
+            <li class="list-element"><a href="./index.html">Inicio</a></li>
+            <li class="list-element"><a href="./envios.html">Envios</a></li>
+            <li class="list-element"><a href="./login.html">Log-in</a></li>
+            <li class="list-element"><a href="./contacto.html">Contacto</a></li>
+            <li class="list-element" id="switch-container">
+                <p class="p-tema" style="margin: 0 20px 0 0;">Tema</p>
+                <label class="switch">
+                <input id="switch" type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Contacto</h1>
+    </header>
+
+    <section>
+        <div class="container-form">
+            <form action="#" method="POST">
+                <p>Nombre</p><input class="form-control" type="text" required>
+                <p>Email</p><input class="form-control" type="email" required>
+                <p>Telefono</p><input class="form-control" type="number" required>
+                <p>Mensaje</p><textarea class="form-control text-area" type="text" required></textarea>
+                <button class="btn-enviar">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <img class="logo-footer" src="./img/carpifast.svg">
+        <ul class="contacto">
+            <li>CONTACTENOS:</li>
+            <li>Tel: (+598) 93 312 716</li>
+            <li>carpisoft@gmail.com</li>
+        </ul>
+    </footer>
+
+    <script src="./js/modoClaroOscuro/estilosContacto.js"></script>
+
+</body>
+</html>

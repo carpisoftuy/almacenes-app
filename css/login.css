@@ -1,0 +1,398 @@
+:root {
+    --color-principal: #18181B;
+    --color-fuente: #A970DA;
+    --background: #3c2d43;
+    --background-ham: #26262a;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-fuente);
+}
+
+body{
+    background-color: var(--background);
+}
+
+.ourNavbar{
+  background-color: var(--color-principal);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.list-element{
+  list-style: none;
+  width: 200px;
+  height: 40px;
+  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.list-element a{
+    position: relative;
+    text-decoration: none;
+    padding: 0px 10px 0px 10px;
+    color: var(--color-fuente);
+}
+
+.link-con-after:after{
+  background-color: #FFF !important;
+}
+
+.list-element a:after{
+    content: "";
+    position: absolute;
+    background-color: var(--color-fuente);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.list-element a:hover::after{
+    width: 100%;
+}
+
+.list-element-logo{
+  list-style: none;
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  height: 70px;
+  -webkit-user-drag: none;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+}
+
+.login-container{
+    width: 800px;
+    height: 400px;
+    background-color: var(--color-principal);
+    display: flex;
+    border-radius: 50px 0px 50px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 50px 0px 87px 0px;
+    animation: desplazar 500ms ease-out;
+}
+
+.img-background{
+    border-radius: 50px 0px 0px 0px;
+    width: 400px;
+    -webkit-user-drag: none;
+}
+
+.login-logo{
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    -webkit-user-drag: none;
+}
+
+.form-container{
+    display: block;
+    text-align: center;
+}
+
+.form-container h2{
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+input{
+    width: 200px;
+    margin-bottom: 25px !important;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px var(--color-fuente);
+    background-color: var(--color-principal);
+}
+
+input::placeholder{
+    color: var(--color-fuente);
+    font-family: 'Poppins', sans-serif;
+}
+
+.placeHolderClaro::placeholder{
+    color: #FFF;
+}
+
+.placeHolderClaro{
+    border-bottom: solid 1px #FFF;
+}
+
+.btn-login{
+    width: 125px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--background);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    font-weight:500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-login:hover{
+    transform: translateY(-2px);
+}
+
+footer{
+    height: 200px;
+    background-color: var(--color-principal);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 94px;
+}
+
+.logo-footer{
+    height: 150px;
+    margin-right: 10rem;
+    -webkit-user-drag: none;
+}
+
+.contacto{
+    list-style: none;
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contacto li{
+    margin-bottom: 10px;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+
+  #check{
+    display: none;
+  }
+
+  .titulo{
+    display: none;
+  }
+
+
+  @keyframes desplazar{
+
+    from{
+      transform: translateX(-50vw);
+      opacity: 0.01;
+    }
+  
+    to{
+      transform: translateX(0);
+    }
+  
+  }
+
+  /*estilos del switch*/
+
+    /* el contenedor base */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+    }
+  
+  /* aplicamos las propiedades al checkbox */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    border: solid 1px var(--color-fuente);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 23px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--color-fuente);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  /*cuando queda el checkbox activado modificamos las propiedades del slider*/
+  input:checked + .slider {
+    background-color: #ffffff;
+    border: solid 1px rgb(52, 108, 230);
+  }
+
+  
+  input:checked + .slider:before{
+    background-color: rgb(52, 108, 230);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  #switch-container{
+    margin: 0;
+  }
+
+  #switch{
+    width: 20px;
+  }
+
+
+@media only screen and (min-width:0px) and (max-width:425px){
+
+    .ourNavbar{
+        height: 60px;
+        justify-content:space-between;
+        align-items: center;
+    }
+    
+    .checkbtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        height: 60px;
+      }
+    
+    .hamburguesa{
+        height: 30px;
+        margin: 0px 0px 0px 10px;
+        background-color: var(--color-fuente);
+        border-radius: 4px;
+    }
+    
+    .titulo{
+        display: flex;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .logo-menu-hamburguesa{
+        display: flex;
+        height: 30px;
+        margin: 0 20px 0px 0;
+    }
+    
+    .nav-list{
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 80vw;
+        height: 75vh;
+        left: -100vw;
+        top: 60px;
+        font-size: 10px;
+        transition: all .5s;
+        z-index: 2;
+        background-color: var(--background-ham);
+    }
+    
+    .logo{
+        display: none;
+    }
+    
+    nav ul li a {
+        font-size: 20px;
+    }
+    
+    a:hover,a.active {
+        background: none;
+    }
+    
+    #check:checked ~ ul {
+        left: 0;
+    }
+
+    .login-container{
+        width: 280px;
+        height: 200px;
+        display: block;
+    }
+
+    .img-background{
+        width: 100%;
+    }
+
+    .login-logo{
+        height: 50px;
+    }
+
+    .form-container{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: var(--color-principal);
+        border-radius: 0 0 50% 0;
+        height: 320px;
+    }
+
+    footer{
+        height: 150px;
+        margin-top: 300px;
+    }
+      
+    .logo-footer{
+        height: 100px;
+        margin-right: 20px;
+    }
+
+      
+    .contacto li{
+        font-size: 11px;
+        margin-bottom: 0px;
+    }
+
+      .p-tema{
+        font-size: 20px;
+      }
+
+}
