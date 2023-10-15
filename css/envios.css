@@ -12,6 +12,10 @@
   color: var(--color-fuente);
 }
 
+#click{
+color: white !important;
+}
+
 body{
 background-color: var(--background);
 }
@@ -236,7 +240,7 @@ footer{
 }
 
 #switch{
-  width: 20px;
+  width: 0px;
 }
 
 /* aplicamos las propiedades al checkbox */
@@ -321,6 +325,10 @@ width: 0;
   height: 60px;
 }
 
+.list-element{
+  margin-top: 20px;
+}
+
 
 .hamburguesa{
   height: 30px;
@@ -338,22 +346,25 @@ width: 0;
 .logo-menu-hamburguesa{
   display: flex;
   height: 30px;
-  margin: 0 20px 0px 0;
 }
 
 .nav-list{
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 80vw;
-  height: 79.5vh;
+  height: 80vh;
   left: -100vw;
   top: 60px;
   font-size: 10px;
   transition: all .5s;
   z-index: 2;
   background-color: var(--background-ham);
+}
+
+.list-element-logo{
+display: none;
 }
 
 .logo{

@@ -6,11 +6,14 @@ const PARRAFOS = document.querySelectorAll("p");
 const BODY = document.querySelectorAll("body");
 const H3 = document.querySelectorAll("h3");
 const H1 = document.querySelectorAll("h1");
-const H6 = document.querySelectorAll("h6");
+const H4 = document.querySelectorAll("h4");
+const bienvenido = document.getElementById("bienvenido")
 const FOOTER = document.getElementById("footer");
 const LI = document.querySelectorAll("li");
 const HAMBURGUESA = document.getElementById("hamburguesa");
 const TH = document.querySelectorAll("th")
+const IDIOMA = document.getElementById("idioma")
+const BTN = document.querySelectorAll("button")
 
 ///variables color tema claro////
 
@@ -49,12 +52,12 @@ function estilosTemaClaro(){
         h.style.color = colorBody;
     })
 
-    H6.forEach(h=>{
+    H4.forEach(h=>{
         h.style.color = colorBody;
     })
 
     H1.forEach(h=>{
-        h.style.color = backgroundTemaClaro;
+        h.style.color = colorFuenteTemaClaro;
     })
 
     FOOTER.style.backgroundColor = backgroundTemaClaro;
@@ -63,7 +66,15 @@ function estilosTemaClaro(){
         l.style.color = colorFuenteTemaClaro;
     })
 
+    BTN.forEach(l=>{
+        l.style.color = backgroundTemaClaro;
+    })
+
+    IDIOMA.style.color = colorFuenteTemaClaro;
+
     HAMBURGUESA.style.backgroundColor = colorFuenteTemaClaro;
+
+    bienvenido.style.color = backgroundTemaClaro
 
 }
 
@@ -99,7 +110,7 @@ function estilosTemaOscuro(){
         h.style.color = "var(--color-fuente)";
     })
 
-    H6.forEach(h=>{
+    H4.forEach(h=>{
         h.style.color = "var(--color-fuente)";
     })
 
@@ -114,6 +125,12 @@ function estilosTemaOscuro(){
     })
 
     HAMBURGUESA.style.backgroundColor = "var(--color-fuente)";
+
+    IDIOMA.style.color = "var(--color-fuente)";
+
+    BTN.forEach(l=>{
+        l.style.color = "var(--color-fuente)";
+    })
 
 }
 

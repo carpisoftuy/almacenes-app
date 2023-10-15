@@ -9,6 +9,7 @@ const FOOTER = document.querySelectorAll("footer");
 const LI = document.querySelectorAll("li");
 const ABOUTUS = document.getElementById("about")
 const HAMBURGUESA = document.getElementById("hamburguesa");
+const IDIOMA = document.getElementById("idioma")
 
 ///variables color tema claro////
 
@@ -54,6 +55,8 @@ function estilosTemaClaro(){
 
     HAMBURGUESA.style.backgroundColor = colorFuenteTemaClaro;
 
+    IDIOMA.style.color = colorFuenteTemaClaro;
+
 }
 
 function estilosTemaOscuro(){
@@ -94,6 +97,8 @@ function estilosTemaOscuro(){
     })
 
     HAMBURGUESA.style.backgroundColor = "var(--color-fuente)";
+
+    IDIOMA.style.color = "var(--color-fuente)"
 
 }
 

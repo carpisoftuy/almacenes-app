@@ -30,7 +30,7 @@ function traducirAIngles(){
     txtRastreo.innerHTML = "TRACK YOUR SHIPMENT"
     txtTextoRastreo.innerHTML = "Enter your shipping code on your shipping receipt stored in your email"
     txtCodigoTxt.innerHTML = "Track code:"
-    txtNoPuede.innerHTML = `Can't track your order? <a href="./contacto.html">Click here</a>` 
+    txtNoPuede.innerHTML = `Can't track your order? <a id="click" href="./contacto.html">Click here</a>` 
     txtEnviar.innerHTML = "Track"
 
 }
@@ -48,7 +48,7 @@ function traducirAEspanol(){
     txtRastreo.innerHTML = "RASTREE SU ENVÍO"
     txtTextoRastreo.innerHTML = "Ingrese su código de envio en su comprobante de envio alojado en su email"
     txtCodigoTxt.innerHTML = "Código de rastrero:"
-    txtNoPuede.innerHTML = `¿No puede rastrear su pedido? <a href="./contacto.html">Click aqui</a>`
+    txtNoPuede.innerHTML = `¿No puede rastrear su pedido? <a id="click" href="./contacto.html">Click aqui</a>`
     txtEnviar.innerHTML = "Rastrear"
 
 }

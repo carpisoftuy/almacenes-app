@@ -10,6 +10,8 @@ const FOOTER = document.getElementById("footer");
 const LI = document.querySelectorAll("li");
 const HAMBURGUESA = document.getElementById("hamburguesa");
 const INPUT = document.querySelectorAll("input")
+const IDIOMA = document.getElementById("idioma")
+const BTN = document.getElementById("loginBtn")
 
 ///variables color tema claro////
 
@@ -59,6 +61,11 @@ function estilosTemaClaro(){
 
     HAMBURGUESA.style.backgroundColor = colorFuenteTemaClaro;
 
+    IDIOMA.style.color = "#FFF"
+
+    BTN.style.color = colorFuenteTemaClaro
+    BTN.style.backgroundColor = backgroundTemaClaro
+
 }
 
 function estilosTemaOscuro(){
@@ -104,6 +111,10 @@ function estilosTemaOscuro(){
 
     HAMBURGUESA.style.backgroundColor = "var(--color-fuente)";
 
+    IDIOMA.style.color = "var(--color-fuente)"
+
+    BTN.style.color = "var(--color-fuente)";
+    BTN.style.backgroundColor = "var(--background)";
 }
 
 tema = localStorage.getItem("tema")

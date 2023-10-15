@@ -5,9 +5,13 @@ const NAVBAR = document.querySelectorAll("nav");
 const PARRAFOS = document.querySelectorAll("p");
 const BODY = document.querySelectorAll("body");
 const H1 = document.querySelectorAll("h1");
+const H2 = document.querySelectorAll("h2");
 const FOOTER = document.getElementById("footer");
 const LI = document.querySelectorAll("li");
 const HAMBURGUESA = document.getElementById("hamburguesa");
+const IDIOMA = document.getElementById("idioma")
+const ENVIAR = document.getElementById("enviar")
+
 
 ///variables color tema claro////
 
@@ -38,6 +42,10 @@ function estilosTemaClaro(){
     })
 
     H1.forEach(h=>{
+        h.style.color = colorFuenteTemaClaro;
+    })
+
+    H2.forEach(h=>{
         h.style.color = backgroundTemaClaro;
     })
 
@@ -48,6 +56,11 @@ function estilosTemaClaro(){
     })
 
     HAMBURGUESA.style.backgroundColor = colorFuenteTemaClaro;
+
+    IDIOMA.style.color = colorFuenteTemaClaro;
+
+    ENVIAR.style.color = backgroundTemaClaro;
+
 
 }
 
@@ -78,6 +91,10 @@ function estilosTemaOscuro(){
         h.style.color = "var(--color-fuente)";
     })
 
+    H2.forEach(h=>{
+        h.style.color = "var(--color-fuente)";
+    })
+
     FOOTER.style.backgroundColor = "var(--color-principal)";
 
     LI.forEach(l=>{
@@ -85,6 +102,10 @@ function estilosTemaOscuro(){
     })
 
     HAMBURGUESA.style.backgroundColor = "var(--color-fuente)";
+
+    IDIOMA.style.color = "var(--color-fuente)";
+
+    ENVIAR.style.color = "var(--color-fuente)"
 
 }
 

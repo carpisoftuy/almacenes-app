@@ -292,7 +292,7 @@ footer{
   }
 
   #switch{
-    width: 20px;
+    width: 0px;
   }
 
   #idioma{
@@ -315,6 +315,14 @@ footer{
         height: 60px;
         justify-content:space-between;
         align-items: center;
+    }
+
+    .list-element-logo{
+        display: none;
+    }
+
+    .list-element{
+        margin-top: 20px;
     }
 
     .checkbtn{
@@ -344,12 +352,12 @@ footer{
     }
 
     .nav-list{
-        position: fixed;
+        position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         width: 80vw;
-        height: 85vh;
+        height: 100vh;
         left: -100vw;
         top: 60px;
         font-size: 10px;

@@ -42,7 +42,7 @@ p{
     list-style: none;
     width: 200px;
     height: 40px;
-    margin-right: 20px;
+    margin-right: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,7 +273,7 @@ footer{
   }
 
   #switch{
-    width: 20px;
+    width: 0px;
   }
 
   #idioma{
@@ -295,6 +295,10 @@ footer{
         height: 50px;
         justify-content: center;
         align-items: flex-end;
+    }
+
+    .list-element{
+        margin-top: 20px;
     }
 
     .list-element-logo{
@@ -379,10 +383,10 @@ footer{
     }
 
     .nav-list{
-        position: fixed;
+        position: absolute;
         display: block;
         width: 80vw;
-        height: 75vh;
+        height: 73.5vh;
         left: -100vw;
         top: 50px;
         font-size: 10px;
@@ -392,7 +396,6 @@ footer{
     }
       nav ul li a{
         font-size: 20px;
-        margin: 50px 0px 0px 0px;
       }
   
       a:hover,a.active{
@@ -422,7 +425,7 @@ footer{
 
     .nav-list{
         width: 70vw;
-        height: 77.5vh;
+        height: 75.6vh;
     }
 
 }
@@ -435,7 +438,7 @@ footer{
 
     .nav-list{
         width: 60vw;
-        height: 85vh;
+        height: 83vh;
     }
 
     footer{

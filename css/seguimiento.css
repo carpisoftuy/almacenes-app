@@ -248,7 +248,7 @@ footer{
   }
 
   #switch{
-    width: 20px;
+    width: 0px;
   }
 
   #idioma{
@@ -300,19 +300,27 @@ footer{
         margin: 0 20px 0px 0;
     }
 
+    .list-element{
+        margin-top: 20px;
+    }
+
     .nav-list{
-        position: fixed;
+        position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         width: 80vw;
-        height: 90vh;
+        height: 101vh;
         left: -100vw;
         top: 60px;
         font-size: 10px;
         transition: all .5s;
         z-index: 2;
         background-color: var(--background-ham);
+    }
+
+    .list-element-logo{
+        display: none;
     }
 
     .logo{

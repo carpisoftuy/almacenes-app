@@ -164,6 +164,14 @@ footer{
   margin-bottom: 10px;
 }
 
+p{
+margin: 0;
+}
+
+input{
+margin-bottom: 15px;
+}
+
 .checkbtn{
   font-size: 30px;
   color: white;
@@ -253,7 +261,7 @@ input:checked + .slider:before {
 }
 
 #switch{
-  width: 20px;
+  width: 0px;
 }
 
 #idioma{
@@ -270,6 +278,11 @@ input:checked + .slider:before {
 }
 
 @media only screen and (min-width:0px) and (max-width:425px){
+
+  .list-element-logo{
+    display: none;
+  }
+
 
   .ourNavbar{
       height: 60px;
@@ -300,16 +313,19 @@ input:checked + .slider:before {
   .logo-menu-hamburguesa{
       display: flex;
       height: 30px;
-      margin: 0 20px 0px 0;
+  }
+
+  .list-element{
+    margin-top: 20px;
   }
   
   .nav-list{
-      position: fixed;
+      position: absolute;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       width: 80vw;
-      height: 86.5vh;
+      height: 76vh;
       left: -100vw;
       top: 60px;
       font-size: 10px;
