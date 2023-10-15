@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./css/seguimiento.css">
 </head>
 <body>
-    <nav class="ourNavbar">
 
+    <nav class="ourNavbar">
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
           <img class="hamburguesa" id="hamburguesa" src="./img/list.svg">
@@ -21,12 +21,21 @@
 
         <ul class="nav-list">
             <li class="list-element-logo"><a href="./index.html"><img class="logo" src="./img/carpifast.svg"></a></li>
-            <li class="list-element"><a href="./index.html">Inicio</a></li>
-            <li class="list-element"><a href="./envios.html">Envios</a></li>
-            <li class="list-element"><a href="./login.html">Log-in</a></li>
-            <li class="list-element"><a href="./contacto.html">Contacto</a></li>
+            <li class="list-element"><a id="inicio" href="./index.html">Inicio</a></li>
+            <li class="list-element"><a id="envios" href="./envios.html">Envios</a></li>
+            <li class="list-element"><a id="login" href="./login.html">Login</a></li>
+            <li class="list-element"><a id="contacto" href="./contacto.html">Contacto</a></li>
+            <li class="list-element">
+              <div class="dropdown">
+                <button id="idioma" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Idioma</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#" id="es">Español</a></li>
+                  <li><a class="dropdown-item" href="#" id="en">English</a></li>
+                </ul>
+              </div>
+            </li>
             <li class="list-element" id="switch-container">
-                <p class="p-tema" style="margin: 0 20px 0 0;">Tema</p>
+                <p class="p-tema" style="margin: 0 20px 0 0;" id="tema">Tema</p>
                 <label class="switch">
                 <input id="switch" type="checkbox">
                 <span class="slider round"></span>
@@ -37,33 +46,34 @@
 
     <section>
         <div class="estado-container">
-            <p>Estado del pedido:</p>
+            <p id="estado">Estado del pedido</p>
             <h3>En tránsito</h3>
         </div>
 
         <div class="ticket-container">
             <img class="logo-seguimiento" src="./img/carpifast.svg">
-            <h6>CARPIFAST</h6>
-            <p>Email de contacto:</p>
-            <a href="#">carpifast@gmail.com</a>
-            <h6>Detalles del envío</h6>
-            <p>Peso:</p>
-            <p>Ejemplo 2kg</p>
-            <h6>Número de seguimiento</h6>
-            <p>12434643634</p>
+            <h6 id="detalles">Detalles del envío</h6>
+            <h6 id="direccion-txt">Direccion</h6>
+            <p id="direccion">ejemplo</p>
+            <h6 id="peso-txt">Peso</h6>
+            <p id="peso">Ejemplo 2kg</p>
+            <h6 id="nro-seguimiento-txt">Número de seguimiento</h6>
+            <p id="nro-seguimiento">12434643634</p>
         </div>
     </section>
 
     <footer id="footer">
-        <img class="logo-footer" src="./img/carpifast.svg">
-        <ul class="contacto">
-            <li>CONTACTENOS:</li>
-            <li>Tel: (+598) 93 312 716</li>
-            <li>carpisoft@gmail.com</li>
-        </ul>
-    </footer>
+      <img class="logo-footer" src="./img/carpifast.svg">
+      <ul class="contacto">
+          <li id="contactenos">CONTACTENOS:</li>
+          <li>Tel: (+598) 93 312 716</li>
+          <li>carpisoft@googlegroups.com</li>
+      </ul>
+  </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./js/modoClaroOscuro/estilosRegistro.js"></script>
+    <script src="./js/modoClaroOscuro/estilosSeguimiento.js"></script>
+    <script src="./js/seguimiento.js"></script>
+    <script src="./js/idiomas/seguimiento_idioma.js"></script>
 </body>
 </html>

@@ -24,6 +24,7 @@ h3{
 
 h6{
     color: var(--color-fuente);
+    text-decoration: underline;
 }
 
 body{
@@ -248,6 +249,19 @@ footer{
 
   #switch{
     width: 20px;
+  }
+
+  #idioma{
+    background-color: var(--background-ham) !important;
+    color: var(--color-fuente);
+  }
+
+  .dropdown-menu{
+    background-color: #3c2d43;
+  }
+
+  .dropdown-menu li a:hover::after{
+    width: 0;
   }
 
 

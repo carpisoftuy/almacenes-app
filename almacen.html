@@ -12,7 +12,6 @@
 <body>
 
     <nav class="ourNavbar">
-
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
           <img class="hamburguesa" id="hamburguesa" src="./img/list.svg">
@@ -22,12 +21,20 @@
 
         <ul class="nav-list">
             <li class="list-element-logo"><a href="./index.html"><img class="logo" src="./img/carpifast.svg"></a></li>
-            <li class="list-element"><a href="./index.html">Inicio</a></li>
-            <li class="list-element"><a href="./envios.html">Envios</a></li>
-            <li class="list-element"><a href="./login.html">Log-in</a></li>
-            <li class="list-element"><a href="./contacto.html">Contacto</a></li>
+            <li class="list-element"><a id="inicio" href="./index.html">Inicio</a></li>
+            <li class="list-element"><a id="envios" href="./envios.html">Envios</a></li>
+            <li class="list-element"><a id="contacto" href="./contacto.html">Contacto</a></li>
+            <li class="list-element">
+              <div class="dropdown">
+                <button id="idioma" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Idioma</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#" id="es">Español</a></li>
+                  <li><a class="dropdown-item" href="#" id="en">English</a></li>
+                </ul>
+              </div>
+            </li>
             <li class="list-element" id="switch-container">
-                <p class="p-tema" style="margin: 0 20px 0 0;">Tema</p>
+                <p class="p-tema" style="margin: 0 20px 0 0;" id="tema">Tema</p>
                 <label class="switch">
                 <input id="switch" type="checkbox">
                 <span class="slider round"></span>
@@ -37,17 +44,17 @@
     </nav>
     
     <header>
-        <h1>Bienvenido Almacenero!</h1>
+        <h1 id="bienvenido">Bienvenido Almacenero!</h1>
     </header>
     
     <section class="table-container">
         <table>
             <thead>
-                <th>nro paquete</th>
-                <th>Direccion</th>
-                <th>Destinatario</th>
-                <th>Bulto</th>
-                <th>Modificar</th>
+                <th id="nroPaquete">nro paquete</th>
+                <th id="direccion">Direccion</th>
+                <th id="destinatario">Destinatario</th>
+                <th id="bulto">Bulto</th>
+                <th class="modificar">Modificar</th>
             </thead>
     
             <tbody>
@@ -56,32 +63,32 @@
                     <td>vilardebo 2024</td>
                     <td>Jose Sanchez</td>
                     <td>#1</td>
-                    <td><a href="#">modificar</a></td>
+                    <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>Isla de gorriti 3212</td>
                     <td>Mario Pérez</td>
                     <td>#2</td>
-                    <td><a href="#">modificar</a></td>
+                    <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Artilleros orientales 1425</td>
                     <td>Juan Vazquez</td>
                     <td>#2</td>
-                    <td><a href="#">modificar</a></td>
+                    <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
             </tbody>
         </table>
 
         <table>
             <thead>
-                <th>nro Bulto</th>
-                <th>Camion asignado</th>
-                <th>Chofer designado</th>
-                <th>Fecha armado</th>
-                <th>Modificar</th>
+                <th id="nroBulto">nro Bulto</th>
+                <th id="camionAsignado">Camion asignado</th>
+                <th id="choferAsignado">Chofer asignado</th>
+                <th id="fechaArmado">Fecha armado</th>
+                <th class="modificar">Modificar</th>
             </thead>
     
             <tbody>
@@ -90,21 +97,21 @@
                     <td>SBZ 8736</td>
                     <td>Jose Sanchez</td>
                     <td>#1</td>
-                    <td><a href="#">modificar</a></td>
+                    <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>ASM 3412</td>
                     <td>Mario Pérez</td>
                     <td>#2</td>
-                    <td><a href="#">modificar</a></td>
+                    <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>AAJ 4262</td>
                     <td>Juan Vazquez</td>
                     <td>#2</td>
-                    <td><a href="#">modificar</a></td>
+                    <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
             </tbody>
         </table>
@@ -112,32 +119,32 @@
 
     <div class="formularios">
         <form action="#" method="POST">
-            <h4>Añadir paquete</h4>
-            <p>direccion</p>
+            <h4 id="añadirPaquete">Añadir paquete</h4>
+            <p id="pDireccion">direccion</p>
             <input type="text">
-            <p>destinatario</p>
+            <p id="pDestinatario">destinatario</p>
             <input type="text">
-            <p>Bulto asignado</p>
+            <p id="pBultoAsignado">Bulto asignado</p>
             <input type="number"><br>
-            <button type="submit">Crear paquete</button>
+            <button type="submit" id="crearPaquete">Crear paquete</button>
         </form>
     
         <form action="#" method="POST">
-            <h4>Crear bulto</h4>
-            <p>Camion asignado</p>
+            <h4 id="añadirBulto">Añadir bulto</h4>
+            <p id="pCamion">Camion asignado</p>
             <input type="text">
-            <p>Chofer Asignado</p>
+            <p id="pChofer">Chofer Asignado</p>
             <input type="text">
-            <p>Paquetes contenidos</p>
+            <p id="pPaquetes">Paquetes contenidos</p>
             <input type="number"><br>
-            <button type="submit">Crear bulto</button>
+            <button id="crearBulto" type="submit">Crear bulto</button>
         </form>
     </div>
 
     <footer id="footer">
         <img class="logo-footer" src="./img/carpifast.svg">
         <ul class="contacto">
-            <li>CONTACTENOS:</li>
+            <li id="contactenos">CONTACTENOS:</li>
             <li>Tel: (+598) 93 312 716</li>
             <li>carpisoft@gmail.com</li>
         </ul>
@@ -146,5 +153,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./js/modoClaroOscuro/estilosAlmacen.js"></script>
+    <script src="./js/idiomas/almacen_idioma.js"></script>
 </body>
 </html>

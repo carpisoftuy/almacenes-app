@@ -203,6 +203,19 @@ footer{
     display: none;
   }
 
+  #idioma{
+    background-color: var(--background-ham) !important;
+    color: var(--color-fuente);
+  }
+
+  .dropdown-menu{
+    background-color: #3c2d43;
+  }
+
+  .dropdown-menu li a:hover::after{
+    width: 0;
+  }
+
 
   @keyframes desplazar{
 

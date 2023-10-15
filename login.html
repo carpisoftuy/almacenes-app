@@ -12,7 +12,6 @@
 <body>
     
     <nav class="ourNavbar">
-
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
           <img class="hamburguesa" id="hamburguesa" src="./img/list.svg">
@@ -22,12 +21,21 @@
 
         <ul class="nav-list">
             <li class="list-element-logo"><a href="./index.html"><img class="logo" src="./img/carpifast.svg"></a></li>
-            <li class="list-element"><a href="./index.html">Inicio</a></li>
-            <li class="list-element"><a href="./envios.html">Envios</a></li>
-            <li class="list-element"><a href="./login.html">Log-in</a></li>
-            <li class="list-element"><a href="./contacto.html">Contacto</a></li>
+            <li class="list-element"><a id="inicio" href="./index.html">Inicio</a></li>
+            <li class="list-element"><a id="envios" href="./envios.html">Envios</a></li>
+            <li class="list-element"><a id="login" href="./login.html">Login</a></li>
+            <li class="list-element"><a id="contacto" href="./contacto.html">Contacto</a></li>
+            <li class="list-element">
+              <div class="dropdown">
+                <button id="idioma" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Idioma</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#" id="es">Español</a></li>
+                  <li><a class="dropdown-item" href="#" id="en">English</a></li>
+                </ul>
+              </div>
+            </li>
             <li class="list-element" id="switch-container">
-                <p class="p-tema" style="margin: 0 20px 0 0;">Tema</p>
+                <p class="p-tema" style="margin: 0 20px 0 0;" id="tema">Tema</p>
                 <label class="switch">
                 <input id="switch" type="checkbox">
                 <span class="slider round"></span>
@@ -44,12 +52,12 @@
 
         <div class="form-container">
             <img src="./img/carpifast.svg" class="login-logo">
-            <h2>Bienvenido de nuevo</h2>
+            <h2 id="bienvenido">Bienvenido de nuevo</h2>
 
             <form action="#" method="POST">
                 <input type="text" placeholder="Usuario" id="username" required>
                 <input type="password" placeholder="Contraseña" id="password" required><br>
-                <button type="submit" id="loginbtn" class="btn-login">Ingresar</button>
+                <button type="submit" id="loginBtn" class="btn-login">Ingresar</button>
             </form>
         </div>
         
@@ -60,14 +68,16 @@
     <footer id="footer">
         <img class="logo-footer" src="./img/carpifast.svg">
         <ul class="contacto">
-            <li>CONTACTENOS:</li>
+            <li id="contactenos">CONTACTENOS:</li>
             <li>Tel: (+598) 93 312 716</li>
             <li>carpisoft@gmail.com</li>
         </ul>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./js/modoClaroOscuro/estilosLogin.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/idiomas/login_idioma.js"></script>
 
 
 </body>
