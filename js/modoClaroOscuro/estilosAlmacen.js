@@ -132,6 +132,8 @@ function estilosTemaOscuro(){
         l.style.color = "var(--color-fuente)";
     })
 
+    bienvenido.style.color = "var(--color-fuente)";
+
 }
 
 tema = localStorage.getItem("tema")
