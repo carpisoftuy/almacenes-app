@@ -4,7 +4,6 @@ let en = document.getElementById("en")
 //navbar
 let txtInicio = document.getElementById("inicio")
 let txtSobreNosotros = document.getElementById("sobre-nosotros")
-let txtEnvio = document.getElementById("envios")
 let txtContacto = document.getElementById("contacto")
 let txtIdioma = document.getElementById("idioma")
 let txtTema = document.getElementById("tema")
@@ -20,7 +19,6 @@ function traducirAIngles(){
     //navbar
     txtInicio.innerHTML = "Home"
     txtSobreNosotros.innerHTML = "About us"
-    txtEnvio.innerHTML = "Shipments"
     txtContacto.innerHTML = "Contact"
     txtIdioma.innerHTML = "Language"
     txtTema.innerHTML = "Theme"
@@ -37,7 +35,6 @@ function traducirAEspanol(){
     //navbar
     txtInicio.innerHTML = "Inicio"
     txtSobreNosotros.innerHTML = "Sobre Nosotros"
-    txtEnvio.innerHTML = "Envios"
     txtContacto.innerHTML = "Contacto"
     txtIdioma.innerHTML = "Idioma"
     txtTema.innerHTML = "Tema"

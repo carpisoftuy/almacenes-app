@@ -50,34 +50,12 @@
         <table>
             <thead>
                 <th id="nroPaquete">nro paquete</th>
-                <th id="direccion">Direccion</th>
-                <th id="destinatario">Destinatario</th>
+                <th id="direccion">Destino</th>
                 <th id="bulto">Bulto</th>
                 <th class="modificar">Modificar</th>
             </thead>
     
-            <tbody>
-                <tr>
-                    <td>0</td>
-                    <td>vilardebo 2024</td>
-                    <td>Jose Sanchez</td>
-                    <td>#1</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Isla de gorriti 3212</td>
-                    <td>Mario Pérez</td>
-                    <td>#2</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Artilleros orientales 1425</td>
-                    <td>Juan Vazquez</td>
-                    <td>#2</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
-                </tr>
+            <tbody id="table-paquete">
             </tbody>
         </table>
 
@@ -119,12 +97,31 @@
     <div class="formularios">
         <form action="#" method="POST">
             <h4 id="añadirPaquete">Añadir paquete</h4>
-            <p id="pDireccion">direccion</p>
-            <input type="text">
-            <p id="pDestinatario">destinatario</p>
-            <input type="text">
-            <p id="pBultoAsignado">Bulto asignado</p>
-            <input type="number"><br>
+
+            <p id="pPeso">Peso</p>
+            <input type="number" required>
+
+            <p id="pVolumen">Volumen</p>
+            <input type="number" required>
+
+            <select name="recogerEntregar" id="recogerEntregar">
+                <option selected disabled>Seleccione una opción</option>
+                <option value="entregar">Para entregar</option>
+                <option value="recoger">Para recoger</option>
+            </select>
+
+            <p id="pDireccion" class="d-none">Dirección</p>
+            <input class="d-none" id="inputDireccion" type="text" required>
+
+            <p class="d-none" id="pCodigo">Código postal</p>
+            <input  class="d-none" id="inputCodigo" type="number" required>
+
+            <p class="d-none" id="pAlmacen">Almacen</p>
+            <select class="d-none" id="selectAlmacen">
+                <option>sdadss</option>
+                <option>sdadss323232</option>
+            </select><br>
+
             <button type="submit" id="crearPaquete">Crear paquete</button>
         </form>
     
@@ -153,5 +150,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./js/modoClaroOscuro/estilosAlmacen.js"></script>
     <script src="./js/idiomas/almacen_idioma.js"></script>
+    <script src="./js/almacen.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEVxRt4C_8fqQ7_m80lbPthFaECX-MvJ8"></script>
+    <script src="./js/prueba.js"></script>
 </body>
 </html>

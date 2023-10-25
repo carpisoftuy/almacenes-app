@@ -3,7 +3,6 @@ let en = document.getElementById("en")
 
 //navbar
 let txtInicio = document.getElementById("inicio")
-let txtEnvio = document.getElementById("envios")
 let txtContacto = document.getElementById("contacto")
 let txtIdioma = document.getElementById("idioma")
 let txtTema = document.getElementById("tema")
@@ -40,7 +39,6 @@ function traducirAIngles(){
 
     //navbar
     txtInicio.innerHTML = "Home"
-    txtEnvio.innerHTML = "Shipments"
     txtContacto.innerHTML = "Contact"
     txtIdioma.innerHTML = "Language"
     txtTema.innerHTML = "Theme"
@@ -48,7 +46,7 @@ function traducirAIngles(){
 
     txtBienvenido.innerHTML = "Welcome storekeeper"
     txtNroPaquete.innerHTML = "Package number"
-    txtDireccion.innerHTML = "Address"
+    txtDireccion.innerHTML = "Destination"
     txtDestinatario.innerHTML = "Addressee"
     txtBulto.innerHTML = "Bulk"
     
@@ -80,7 +78,6 @@ function traducirAEspanol(){
 
     //navbar
     txtInicio.innerHTML = "Inicio"
-    txtEnvio.innerHTML = "Envios"
     txtContacto.innerHTML = "Contacto"
     txtIdioma.innerHTML = "Idioma"
     txtTema.innerHTML = "Tema"
@@ -88,7 +85,7 @@ function traducirAEspanol(){
 
     txtBienvenido.innerHTML = "Bienvenido Almacenero"
     txtNroPaquete.innerHTML = "nro paquete"
-    txtDireccion.innerHTML = "Dirección"
+    txtDireccion.innerHTML = "Destino"
     txtDestinatario.innerHTML = "Destinatario"
     txtBulto.innerHTML = "Bulto"
     
