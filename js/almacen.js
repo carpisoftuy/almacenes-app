@@ -32,6 +32,7 @@ fetch(URL+"/paquetes")
                     <td>${element.id}</td>
                     <td>${element.ubicacion.direccion}</td>
                     <td>${element.bulto}</td>
+                    <td>${element.bulto}</td>
                     <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
         
@@ -82,3 +83,38 @@ select.addEventListener("change", function(){
 
 })
 
+//agregar almacenes al frontend del select almacen
+
+fetch(URL+"/almacenes")
+
+.then(response => {
+    if (!response.ok) {
+    throw new Error('La solicitud no se pudo completar.');
+    }
+    return response.json();
+})
+
+.then(almacenes => {   
+    
+    //select almacen lo llamamos antes
+
+    console.log(almacenes)
+
+    almacenes.forEach(element => {
+    
+        selectAlmacen.innerHTML += `
+
+
+        <option value="${element.id}">${element.id}: ${element.direccion}, ${element.codigo_postal}</option>
+        
+        `
+
+
+    });
+
+
+})
+
+.catch(error => {
+    console.error('Error al consultar la API:', error);
+});
