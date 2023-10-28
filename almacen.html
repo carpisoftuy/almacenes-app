@@ -100,10 +100,10 @@
             <h4 id="añadirPaquete">Añadir paquete</h4>
 
             <p id="pPeso">Peso</p>
-            <input type="number" required>
+            <input id="inputPeso" type="number" required>
 
             <p id="pVolumen">Volumen</p>
-            <input type="number" required>
+            <input id="inputVolumen" type="number" required>
 
             <select name="recogerEntregar" id="recogerEntregar">
                 <option selected disabled>Seleccione una opción</option>
@@ -145,12 +145,13 @@
         </ul>
     </footer>
     
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEVxRt4C_8fqQ7_m80lbPthFaECX-MvJ8"></script>
+    <script src="./js/calcularLatLong.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./js/modoClaroOscuro/estilosAlmacen.js"></script>
     <script src="./js/idiomas/almacen_idioma.js"></script>
     <script src="./js/almacen.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEVxRt4C_8fqQ7_m80lbPthFaECX-MvJ8"></script>
-    <script src="./js/prueba.js"></script>
+    
 </body>
 </html>

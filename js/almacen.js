@@ -26,12 +26,19 @@ fetch(URL+"/paquetes")
             element.bulto =  "No asignado"
         }
 
+        if(element.almacen == undefined){
+            element.almacen = {
+                id: "",
+                direccion: "No esta en un almacen"
+            }
+        }
+
         tabla_paquete.innerHTML += `
         
                 <tr>
                     <td>${element.id}</td>
                     <td>${element.ubicacion.direccion}</td>
-                    <td>${element.bulto}</td>
+                    <td>${element.almacen.direccion}</td>
                     <td>${element.bulto}</td>
                     <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
@@ -56,6 +63,9 @@ let inputCodigo = document.getElementById("inputCodigo")
 let pAlmacen = document.getElementById("pAlmacen")
 let selectAlmacen = document.getElementById("selectAlmacen")
 let opcionSeleccionada;
+let inputPeso = document.getElementById("inputPeso")
+let inputVolumen = document.getElementById("inputVolumen")
+let crearPaquete = document.getElementById("crearPaquete")
 
 
 select.addEventListener("change", function(){
@@ -70,6 +80,11 @@ select.addEventListener("change", function(){
         inputCodigo.classList.remove("d-none")
         pAlmacen.classList.add("d-none")
         selectAlmacen.classList.add("d-none")
+
+        inputDireccion.classList.add("required")
+        inputCodigo.classList.add("required")
+        selectAlmacen.classList.remove("required")
+
     }
 
     if(opcionSeleccionada == "recoger"){
@@ -79,6 +94,10 @@ select.addEventListener("change", function(){
         inputCodigo.classList.add("d-none")
         pAlmacen.classList.remove("d-none")
         selectAlmacen.classList.remove("d-none")
+
+        inputDireccion.classList.remove("required")
+        inputCodigo.classList.remove("required")
+        selectAlmacen.classList.add("required")
     }
 
 })
@@ -118,3 +137,105 @@ fetch(URL+"/almacenes")
 .catch(error => {
     console.error('Error al consultar la API:', error);
 });
+
+crearPaquete.addEventListener("click", function(e){
+
+    e.preventDefault()
+
+    let pesoIngresado = inputPeso.value
+    let volumenIngresado = inputVolumen.value
+    let direccion = inputDireccion.value
+    let codigo = inputCodigo.value
+    let almacen = selectAlmacen.value
+
+    if(select.value == "entregar"){
+
+         let coordenadas = {}
+
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ 'address': direccion, 'componentRestrictions': { 'postalCode': codigo } }, function(results, status) {
+                if (status === 'OK') {
+                    coordenadas.latitud = results[0].geometry.location.lat();
+                    coordenadas.longitud = results[0].geometry.location.lng();
+
+                    console.log(coordenadas)
+                    datos_push_paquete = {
+                        tipo: "entregar",
+                        peso: pesoIngresado,
+                        volumen: volumenIngresado,
+                        direccion: direccion,
+                        codigo_postal: codigo,
+                        latitud: coordenadas.latitud,
+                        longitud: coordenadas.longitud
+                    }
+
+                    jQuery.ajax({  
+                        url: 'http://127.0.0.1:8000/api/v2/paquetes/', 
+                        type: 'POST',
+                        data: datos_push_paquete,
+                        
+                        success: function(data) {  
+                            alert("Pronto");
+                        },
+                
+                        error: function(data){
+                            alert("Credenciales invalidas");
+                        } 
+                    
+                    });
+
+                    } else {
+                        console.error('Geocodificación fallida: ' + status);
+                    }
+                
+            })
+
+
+    }else{
+
+        datos_push_paquete = {
+            tipo: "recoger",
+            peso: pesoIngresado,
+            volumen: volumenIngresado,
+            almacen_destino: almacen
+        }
+
+        jQuery.ajax({  
+            url: 'http://127.0.0.1:8000/api/v2/paquetes/', 
+            type: 'POST',
+            data: datos_push_paquete,
+            
+            success: function(data) {  
+                alert("Pronto");
+            },
+    
+            error: function(data){
+                alert("Credenciales invalidas");
+            } 
+        
+        });
+        
+    }
+
+    console.log(datos_push_paquete)
+
+    jQuery.ajax({  
+        url: 'http://127.0.0.1:8000/api/v2/paquetes/', 
+        type: 'POST',
+        data: datos_push_paquete,
+        
+        success: function(data) {  
+            alert("Pronto");
+        },
+
+        error: function(data){
+            alert("Credenciales invalidas");
+        } 
+    
+    });  
+
+});
+
+
+
