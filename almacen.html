@@ -63,34 +63,13 @@
         <table>
             <thead>
                 <th id="nroBulto">nro Bulto</th>
-                <th id="camionAsignado">Camion asignado</th>
-                <th id="choferAsignado">Chofer asignado</th>
+                <th id="camionAsignado">Almacen destino</th>
+                <th id="choferAsignado">Ubicacion</th>
                 <th id="fechaArmado">Fecha armado</th>
                 <th class="modificar">Modificar</th>
             </thead>
     
-            <tbody>
-                <tr>
-                    <td>0</td>
-                    <td>SBZ 8736</td>
-                    <td>Jose Sanchez</td>
-                    <td>#1</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>ASM 3412</td>
-                    <td>Mario Pérez</td>
-                    <td>#2</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>AAJ 4262</td>
-                    <td>Juan Vazquez</td>
-                    <td>#2</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
-                </tr>
+            <tbody id="bodyTablaBultos">
             </tbody>
         </table>
     </section>
@@ -126,12 +105,8 @@
     
         <form action="#" method="POST">
             <h4 id="añadirBulto">Añadir bulto</h4>
-            <p id="pCamion">Camion asignado</p>
-            <input type="text">
-            <p id="pChofer">Chofer Asignado</p>
-            <input type="text">
-            <p id="pPaquetes">Paquetes contenidos</p>
-            <input type="number"><br>
+            <p id="pCamion">Almacen de destino</p>
+            <select name="selectAlmacenes2" id="selectAlmacenes2"></select>
             <button id="crearBulto" type="submit">Crear bulto</button>
         </form>
     </div>

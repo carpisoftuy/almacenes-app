@@ -67,6 +67,8 @@ let inputPeso = document.getElementById("inputPeso")
 let inputVolumen = document.getElementById("inputVolumen")
 let crearPaquete = document.getElementById("crearPaquete")
 
+let select2 = document.getElementById("selectAlmacenes2")
+
 
 select.addEventListener("change", function(){
 
@@ -127,6 +129,14 @@ fetch(URL+"/almacenes")
         <option value="${element.id}">${element.id}: ${element.direccion}, ${element.codigo_postal}</option>
         
         `
+
+        select2.innerHTML += `
+        
+        <option value="${element.id}">${element.id}: ${element.direccion}, ${element.codigo_postal}</option>
+        
+        `
+
+
 
 
     });
@@ -236,6 +246,79 @@ crearPaquete.addEventListener("click", function(e){
     });  
 
 });
+
+
+//crear bulto
+
+let btnBulto = document.getElementById("crearBulto")
+
+btnBulto.addEventListener("click", function(e){
+
+    almacen_destino_bulto = select2.value 
+
+    data_push_bulto = {
+        volumen: 0,
+        peso: 0,
+        almacen_destino: almacen_destino_bulto
+    }
+
+    e.preventDefault();
+
+    jQuery.ajax({  
+        url: 'http://127.0.0.1:8000/api/v2/bultos/', 
+        type: 'POST',
+        data: data_push_bulto,
+        
+        success: function(data) {  
+            alert("Pronto");
+        },
+
+        error: function(){
+            alert("Credenciales invalidas");
+        } 
+    
+    });
+
+})
+
+//poblar tabla bultos
+
+fetch(URL+"/bultos")
+
+.then(response => {
+    if (!response.ok) {
+    throw new Error('La solicitud no se pudo completar.');
+    }
+    return response.json();
+})
+
+.then(bultos => { 
+
+
+    console.log(bultos)
+
+    let tablaBulto = document.getElementById("bodyTablaBultos")
+
+    bultos.forEach(function(element){
+
+        tablaBulto.innerHTML += `
+        
+                <tr>
+                    <td>${element.id}</td>
+                    <td>${element.almacen_destino}</td>
+                    <td>${element.direccion}, ${element.codigo_postal}</td>
+                    <td>${element.fecha_armado}</td>
+                    <td><a href="#" class="modificar">modificar</a></td>
+                </tr>
+        
+        `
+
+    })
+
+
+    
+
+})
 
 
 
