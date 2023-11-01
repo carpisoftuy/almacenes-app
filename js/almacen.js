@@ -1,5 +1,12 @@
 const URL = "http://127.0.0.1:8000/api/v2";
 
+
+function asignarBulto(){
+
+
+
+}
+
 //mostrar todos los paquetes
 fetch(URL+"/paquetes")
 
@@ -33,6 +40,8 @@ fetch(URL+"/paquetes")
             }
         }
 
+
+
         tabla_paquete.innerHTML += `
         
                 <tr>
@@ -41,10 +50,11 @@ fetch(URL+"/paquetes")
                     <td>${element.almacen.direccion}</td>
                     <td>${element.bulto}</td>
                     <td><a href="#" class="modificar">modificar</a></td>
+                    <td><select class="selectAsignarBulto"></select></td>
+                    <td><button class="btnAsignarBulto" onclick="asignarBulto()">Asignar</button></td>
                 </tr>
         
         `
-
     });
 
 
@@ -68,6 +78,9 @@ let inputVolumen = document.getElementById("inputVolumen")
 let crearPaquete = document.getElementById("crearPaquete")
 
 let select2 = document.getElementById("selectAlmacenes2")
+let select3 = document.getElementById("selectAlmacenes3")
+
+
 
 
 select.addEventListener("change", function(){
@@ -136,8 +149,11 @@ fetch(URL+"/almacenes")
         
         `
 
-
-
+        select3.innerHTML += `
+        
+        <option value="${element.id}">${element.id}: ${element.direccion}, ${element.codigo_postal}</option>
+        
+        `
 
     });
 
@@ -237,6 +253,7 @@ crearPaquete.addEventListener("click", function(e){
         
         success: function(data) {  
             alert("Pronto");
+            window.location.reload()
         },
 
         error: function(data){
@@ -255,10 +272,12 @@ let btnBulto = document.getElementById("crearBulto")
 btnBulto.addEventListener("click", function(e){
 
     almacen_destino_bulto = select2.value 
+    almacen_origen_bulto = select3.value
 
     data_push_bulto = {
         volumen: 0,
         peso: 0,
+        almacen_origen: almacen_origen_bulto,
         almacen_destino: almacen_destino_bulto
     }
 
@@ -271,6 +290,7 @@ btnBulto.addEventListener("click", function(e){
         
         success: function(data) {  
             alert("Pronto");
+            window.location.reload()
         },
 
         error: function(){
@@ -305,8 +325,8 @@ fetch(URL+"/bultos")
         
                 <tr>
                     <td>${element.id}</td>
-                    <td>${element.almacen_destino}</td>
-                    <td>${element.direccion}, ${element.codigo_postal}</td>
+                    <td>${element.direccion_destino}, ${element.codigo_postal_destino}</td>
+                    <td>${element.direccion_actual}, ${element.codigo_postal_actual}</td>
                     <td>${element.fecha_armado}</td>
                     <td><a href="#" class="modificar">modificar</a></td>
                 </tr>
@@ -319,6 +339,47 @@ fetch(URL+"/bultos")
     
 
 })
+
+//mostrar en select todos los bultos
+
+fetch(URL+"/bultos")
+
+.then(response => {
+    if (!response.ok) {
+    throw new Error('La solicitud no se pudo completar.');
+    }
+    return response.json();
+})
+
+.then(bultos => {   
+    
+    //select almacen lo llamamos antes
+
+    console.log(bultos)
+
+    let selectAsignarBultos = document.getElementsByClassName("selectAsignarBulto")
+
+    console.log(selectAsignarBultos)
+
+    bultos.forEach(element => {
+
+        for (let i = 0; i < selectAsignarBultos.length; i++) {
+            let selectActual = selectAsignarBultos[i];
+            selectActual.innerHTML += `
+            
+            <option value="${element.id}">${element.id}: ${element.fecha_armado}</option>
+            
+            `
+        }
+
+    });
+
+
+})
+
+.catch(error => {
+    console.error('Error al consultar la API:', error);
+});
 
 
 

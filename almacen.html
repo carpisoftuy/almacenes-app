@@ -54,6 +54,8 @@
                 <th id="almacen">Almacen</th>
                 <th id="bulto">Bulto</th>
                 <th class="modificar">Modificar</th>
+                <th class="asignarBulto">Asignar bulto</th>
+                <th></th>
             </thead>
     
             <tbody id="table-paquete">
@@ -105,6 +107,8 @@
     
         <form action="#" method="POST">
             <h4 id="añadirBulto">Añadir bulto</h4>
+            <p id="pCamion">Almacen de origen</p>
+            <select name="selectAlmacenes3" id="selectAlmacenes3"></select>
             <p id="pCamion">Almacen de destino</p>
             <select name="selectAlmacenes2" id="selectAlmacenes2"></select>
             <button id="crearBulto" type="submit">Crear bulto</button>
