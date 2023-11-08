@@ -245,23 +245,6 @@ crearPaquete.addEventListener("click", function(e){
     }
 
     console.log(datos_push_paquete)
-
-    jQuery.ajax({  
-        url: 'http://127.0.0.1:8000/api/v2/paquetes/', 
-        type: 'POST',
-        data: datos_push_paquete,
-        
-        success: function(data) {  
-            alert("Pronto");
-            window.location.reload()
-        },
-
-        error: function(data){
-            alert("Credenciales invalidas");
-        } 
-    
-    });  
-
 });
 
 
