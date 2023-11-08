@@ -56,6 +56,8 @@
                 <th class="modificar">Modificar</th>
                 <th class="asignarBulto">Asignar bulto</th>
                 <th></th>
+                <th>Eliminar</th>
+                
             </thead>
     
             <tbody id="table-paquete">
@@ -86,6 +88,10 @@
             <p id="pVolumen">Volumen</p>
             <input id="inputVolumen" type="number" required>
 
+            <p id="pAlmacenOrigen">Almacen de origen</p>
+            <select id="selectAlmacenOrigen">
+            </select><br>
+
             <select name="recogerEntregar" id="recogerEntregar">
                 <option selected disabled>Seleccione una opción</option>
                 <option value="entregar">Para entregar</option>
@@ -98,7 +104,7 @@
             <p class="d-none" id="pCodigo">Código postal</p>
             <input  class="d-none" id="inputCodigo" type="number" required>
 
-            <p class="d-none" id="pAlmacen">Almacen</p>
+            <p class="d-none" id="pAlmacen">Almacen de destino</p>
             <select class="d-none" id="selectAlmacen">
             </select><br>
 

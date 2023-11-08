@@ -19,7 +19,7 @@ btn.addEventListener("click",function(){
 
     }
 
-    const URL_OBTENER_ID_USUARIO = "http://127.0.0.1:8000/api/v2/usuario/validar/"
+    const URL_OBTENER_ID_USUARIO = "http://127.0.0.1:8001/api/v2/usuario/validar/"
 
     fetch(URL_OBTENER_ID_USUARIO)
 
@@ -30,7 +30,7 @@ btn.addEventListener("click",function(){
 
     }) 
 
-    const URL = "http://127.0.0.1:8000/api/v2/usuario/getRoles/13"
+    const URL = "http://127.0.0.1:8001/api/v2/usuario/getRoles/13"
 
     fetch(URL)
 

@@ -1,8 +1,45 @@
-const URL = "http://127.0.0.1:8000/api/v2";
+const URL = "http://127.0.0.1:8001/api/v2";
 
 
-function asignarBulto(){
+function asignarBulto(id_paquete, id_bulto){
 
+    console.log("merca")
+
+    jQuery.ajax({  
+        url: 'http://127.0.0.1:8001/api/v2/asignar/paquetes/', 
+        type: 'POST',
+        data: {
+            'id_paquete': id_paquete,
+            'id_bulto': id_bulto,
+        },
+        
+        success: function(data) {  
+            alert("Pronto");
+        },
+
+        error: function(){
+            alert("Credenciales invalidas");
+        } 
+    
+    });
+
+}
+
+function eliminarPaquete(id_paquete){
+
+    jQuery.ajax({  
+        url: 'http://127.0.0.1:8001/api/v2/paquetes/'+id_paquete, 
+        type: 'DELETE',
+        
+        success: function() {  
+            alert("Pronto");
+        },
+
+        error: function(){
+            alert("Credenciales invalidas");
+        } 
+    
+    });
 
 
 }
@@ -50,11 +87,14 @@ fetch(URL+"/paquetes")
                     <td>${element.almacen.direccion}</td>
                     <td>${element.bulto}</td>
                     <td><a href="#" class="modificar">modificar</a></td>
-                    <td><select class="selectAsignarBulto"></select></td>
-                    <td><button class="btnAsignarBulto" onclick="asignarBulto()">Asignar</button></td>
+                    <td><select id="select${element.id}" class="selectAsignarBulto"></select></td>
+                    <td><button class="btnAsignarBulto" onclick="asignarBulto(${element.id}, document.getElementById('select${element.id}').value)">Asignar</button></td>
+                    <td><button class="btnEliminar" onclick="eliminarPaquete(${element.id})">Eliminar</button></td>
                 </tr>
         
         `
+        
+
     });
 
 
@@ -79,6 +119,7 @@ let crearPaquete = document.getElementById("crearPaquete")
 
 let select2 = document.getElementById("selectAlmacenes2")
 let select3 = document.getElementById("selectAlmacenes3")
+let selectAlmacenOrigen = document.getElementById("selectAlmacenOrigen")
 
 
 
@@ -155,6 +196,12 @@ fetch(URL+"/almacenes")
         
         `
 
+        selectAlmacenOrigen.innerHTML += `
+        
+        <option value="${element.id}">${element.id}: ${element.direccion}, ${element.codigo_postal}</option>
+        
+        `
+
     });
 
 
@@ -173,6 +220,7 @@ crearPaquete.addEventListener("click", function(e){
     let direccion = inputDireccion.value
     let codigo = inputCodigo.value
     let almacen = selectAlmacen.value
+    let almacenOrigen = selectAlmacenOrigen.value
 
     if(select.value == "entregar"){
 
@@ -193,11 +241,12 @@ crearPaquete.addEventListener("click", function(e){
                         direccion: direccion,
                         codigo_postal: codigo,
                         latitud: coordenadas.latitud,
-                        longitud: coordenadas.longitud
+                        longitud: coordenadas.longitud,
+                        almacen_origen: almacenOrigen
                     }
 
                     jQuery.ajax({  
-                        url: 'http://127.0.0.1:8000/api/v2/paquetes/', 
+                        url: 'http://127.0.0.1:8001/api/v2/paquetes/', 
                         type: 'POST',
                         data: datos_push_paquete,
                         
@@ -224,11 +273,12 @@ crearPaquete.addEventListener("click", function(e){
             tipo: "recoger",
             peso: pesoIngresado,
             volumen: volumenIngresado,
-            almacen_destino: almacen
+            almacen_destino: almacen,
+            almacen_origen: almacenOrigen
         }
 
         jQuery.ajax({  
-            url: 'http://127.0.0.1:8000/api/v2/paquetes/', 
+            url: 'http://127.0.0.1:8001/api/v2/paquetes/', 
             type: 'POST',
             data: datos_push_paquete,
             
@@ -267,7 +317,7 @@ btnBulto.addEventListener("click", function(e){
     e.preventDefault();
 
     jQuery.ajax({  
-        url: 'http://127.0.0.1:8000/api/v2/bultos/', 
+        url: 'http://127.0.0.1:8001/api/v2/bultos/', 
         type: 'POST',
         data: data_push_bulto,
         
