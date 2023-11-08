@@ -64,6 +64,28 @@ function cargarBulto(id_bulto, id_camion){
 
 }
 
+function cargarPaqueteACamioneta(id_paquete, id_vehiculo){
+
+    jQuery.ajax({  
+        url: 'http://127.0.0.1:8001/api/v2/camioneta', 
+        type: 'POST',
+        data: {
+            'id_paquete': id_paquete,
+            'id_vehiculo': id_vehiculo,
+        },
+        
+        success: function(data) {  
+            alert("Pronto");
+        },
+
+        error: function(){
+            alert("Credenciales invalidas");
+        } 
+    
+    });
+
+}
+
 //mostrar todos los paquetes
 fetch(URL+"/paquetes")
 
@@ -109,6 +131,8 @@ fetch(URL+"/paquetes")
                     <td><a href="#" class="modificar">modificar</a></td>
                     <td><select id="select${element.id}" class="selectAsignarBulto"></select></td>
                     <td><button class="btnAsignarBulto" onclick="asignarBulto(${element.id}, document.getElementById('select${element.id}').value)">Asignar</button></td>
+                    <td><select id="selectCamioneta${element.id}" class="selectCamioneta"></select></td>
+                    <td><button onclick="cargarPaqueteACamioneta(${element.id}, document.getElementById('selectCamioneta${element.id}').value)">Cargar</button></td>
                     <td><button class="btnEliminar" onclick="eliminarPaquete(${element.id})">Eliminar</button></td>
                 </tr>
         
@@ -140,6 +164,48 @@ let crearPaquete = document.getElementById("crearPaquete")
 let select2 = document.getElementById("selectAlmacenes2")
 let select3 = document.getElementById("selectAlmacenes3")
 let selectAlmacenOrigen = document.getElementById("selectAlmacenOrigen")
+
+
+let selectCamioneta = document.getElementsByClassName("selectCamioneta")
+
+fetch(URL+"/camionetas")
+
+.then(response => {
+    if (!response.ok) {
+    throw new Error('La solicitud no se pudo completar.');
+    }
+    return response.json();
+})
+
+.then(camionetas => {   
+
+    console.log(camionetas)
+    let camionetasLocal = localStorage.setItem("camionetas", JSON.stringify(camionetas))
+
+    camionetas.forEach(function(elementCamionetas){
+
+        
+        for(i=0; i<selectCamioneta.length;i++){
+
+        
+
+            selectCamioneta[i].innerHTML += `
+            
+            <option>${elementCamionetas.matricula}</option>
+    
+            `
+
+        }
+    
+    })
+    
+
+})
+
+.catch(error => {
+    console.error('Error al consultar la API:', error);
+});
+
 
 
 
