@@ -3,8 +3,6 @@ const URL = "http://127.0.0.1:8001/api/v2";
 
 function asignarBulto(id_paquete, id_bulto){
 
-    console.log("merca")
-
     jQuery.ajax({  
         url: 'http://127.0.0.1:8001/api/v2/asignar/paquetes/', 
         type: 'POST',
@@ -41,6 +39,28 @@ function eliminarPaquete(id_paquete){
     
     });
 
+
+}
+
+function cargarBulto(id_bulto, id_camion){
+
+    jQuery.ajax({  
+        url: 'http://127.0.0.1:8001/api/v2/camiones', 
+        type: 'POST',
+        data: {
+            'id_vehiculo': id_camion,
+            'id_bulto': id_bulto,
+        },
+        
+        success: function(data) {  
+            alert("Pronto");
+        },
+
+        error: function(){
+            alert("Credenciales invalidas");
+        } 
+    
+    });
 
 }
 
@@ -297,6 +317,28 @@ crearPaquete.addEventListener("click", function(e){
     console.log(datos_push_paquete)
 });
 
+/// para traer los camiones al select de bultos esto es una tristeza
+
+fetch(URL+"/camiones")
+
+.then(response => {
+    if (!response.ok) {
+    throw new Error('La solicitud no se pudo completar.');
+    }
+    return response.json();
+})
+
+.then(camiones => {   
+
+    console.log(camiones)
+    let camionesLocal = localStorage.setItem("camiones", JSON.stringify(camiones))
+    
+
+})
+
+.catch(error => {
+    console.error('Error al consultar la API:', error);
+});
 
 //crear bulto
 
@@ -362,14 +404,31 @@ fetch(URL+"/bultos")
                     <td>${element.direccion_actual}, ${element.codigo_postal_actual}</td>
                     <td>${element.fecha_armado}</td>
                     <td><a href="#" class="modificar">modificar</a></td>
+                    <td><select id="selectBulto${element.id}"></select></td>
+                    <td><button onclick="cargarBulto(${element.id}, document.getElementById('selectBulto${element.id}').value)">Cargar</button></td>
+
                 </tr>
         
         `
 
+        camiones = JSON.parse(localStorage.getItem("camiones"))
+        console.log(camiones)
+        camiones.forEach(function(camion){
+            
+            selectBultoActual = document.getElementById("selectBulto"+element.id)
+
+
+            selectBultoActual.innerHTML += `
+            
+            <option value="${camion.id}">${camion.matricula}</option>
+            
+            `
+
+        })
+
     })
 
-
-    
+   
 
 })
 
@@ -413,6 +472,8 @@ fetch(URL+"/bultos")
 .catch(error => {
     console.error('Error al consultar la API:', error);
 });
+
+
 
 
 
