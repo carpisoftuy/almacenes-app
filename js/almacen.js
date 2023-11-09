@@ -67,7 +67,7 @@ function cargarBulto(id_bulto, id_camion){
 function cargarPaqueteACamioneta(id_paquete, id_vehiculo){
 
     jQuery.ajax({  
-        url: 'http://127.0.0.1:8001/api/v2/camioneta', 
+        url: 'http://127.0.0.1:8001/api/v2/camionetas', 
         type: 'POST',
         data: {
             'id_paquete': id_paquete,
