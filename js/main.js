@@ -2,42 +2,29 @@ let btn = document.getElementById("loginBtn")
 let userInput = document.getElementById("username")
 let passInput = document.getElementById("password")
 
-btn.addEventListener("click",function(){
-    
-    const data = {
-        username: userInput.value,
-        password: passInput.value
-    };
+btn.addEventListener("click",function(e){
 
-    const requestOptions = {
+    e.preventDefault()
 
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json' 
-         },
-        body: JSON.stringify(data)
+    jQuery.ajax({
+        url: 'http://127.0.0.1:8003/api/v3/usuario/validar', 
+        type: 'POST',
+        data: {
+            'username': userInput.value,
+            'password': passInput.value,
+            'tipo': "almacenero"
+        },
 
-    }
+        success: function(data) {
+            window.location.href = "almacen.html"
+            localStorage.setItem("token", data.user.token)
+        },
 
-    const URL_OBTENER_ID_USUARIO = "http://127.0.0.1:8001/api/v2/usuario/validar/"
+        error: function(error){
+            alert(error.responseJSON.message);
+        } 
 
-    fetch(URL_OBTENER_ID_USUARIO)
-
-    .then(response => response.json())
-    .then(data =>{
-
-        console.log(data)
-
-    }) 
-
-    const URL = "http://127.0.0.1:8001/api/v2/usuario/getRoles/13"
-
-    fetch(URL)
-
-    .then(response => response.json())
-    .then(data =>{
-        console.log(data)
-    }) 
+    });
 
 })
 
