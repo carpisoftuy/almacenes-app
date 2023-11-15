@@ -100,8 +100,6 @@ fetch(URL+"/paquetes")
     
     tabla_paquete = document.getElementById("table-paquete")
 
-    console.log(paquetes)
-
     paquetes.forEach(element => {
     
         if(element.ubicacion == undefined){
@@ -128,7 +126,6 @@ fetch(URL+"/paquetes")
                     <td>${element.ubicacion.direccion}</td>
                     <td>${element.almacen.direccion}</td>
                     <td>${element.bulto}</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
                     <td><select id="select${element.id}" class="selectAsignarBulto"></select></td>
                     <td><button class="btnAsignarBulto" onclick="asignarBulto(${element.id}, document.getElementById('select${element.id}').value)">Asignar</button></td>
                     <td><select id="selectCamioneta${element.id}" class="selectCamioneta"></select></td>
@@ -179,7 +176,6 @@ fetch(URL+"/camionetas")
 
 .then(camionetas => {   
 
-    console.log(camionetas)
     let camionetasLocal = localStorage.setItem("camionetas", JSON.stringify(camionetas))
 
     camionetas.forEach(function(elementCamionetas){
@@ -212,8 +208,7 @@ fetch(URL+"/camionetas")
 
 select.addEventListener("change", function(){
 
-    opcionSeleccionada = select.value
-    console.log(opcionSeleccionada)   
+    opcionSeleccionada = select.value 
 
     if(opcionSeleccionada == "entregar"){
         pDireccion.classList.remove("d-none")
@@ -259,7 +254,6 @@ fetch(URL+"/almacenes")
     
     //select almacen lo llamamos antes
 
-    console.log(almacenes)
 
     almacenes.forEach(element => {
     
@@ -319,7 +313,6 @@ crearPaquete.addEventListener("click", function(e){
                     coordenadas.latitud = results[0].geometry.location.lat();
                     coordenadas.longitud = results[0].geometry.location.lng();
 
-                    console.log(coordenadas)
                     datos_push_paquete = {
                         tipo: "entregar",
                         peso: pesoIngresado,
@@ -330,6 +323,8 @@ crearPaquete.addEventListener("click", function(e){
                         longitud: coordenadas.longitud,
                         almacen_origen: almacenOrigen
                     }
+
+                    console.log(datos_push_paquete)
 
                     jQuery.ajax({  
                         url: 'http://127.0.0.1:8001/api/v2/paquetes/', 
@@ -380,7 +375,6 @@ crearPaquete.addEventListener("click", function(e){
         
     }
 
-    console.log(datos_push_paquete)
 });
 
 /// para traer los camiones al select de bultos esto es una tristeza
@@ -396,7 +390,6 @@ fetch(URL+"/camiones")
 
 .then(camiones => {   
 
-    console.log(camiones)
     let camionesLocal = localStorage.setItem("camiones", JSON.stringify(camiones))
     
 
@@ -455,9 +448,6 @@ fetch(URL+"/bultos")
 
 .then(bultos => { 
 
-
-    console.log(bultos)
-
     let tablaBulto = document.getElementById("bodyTablaBultos")
 
     bultos.forEach(function(element){
@@ -469,7 +459,6 @@ fetch(URL+"/bultos")
                     <td>${element.direccion_destino}, ${element.codigo_postal_destino}</td>
                     <td>${element.direccion_actual}, ${element.codigo_postal_actual}</td>
                     <td>${element.fecha_armado}</td>
-                    <td><a href="#" class="modificar">modificar</a></td>
                     <td><select id="selectBulto${element.id}"></select></td>
                     <td><button onclick="cargarBulto(${element.id}, document.getElementById('selectBulto${element.id}').value)">Cargar</button></td>
 
@@ -478,7 +467,6 @@ fetch(URL+"/bultos")
         `
 
         camiones = JSON.parse(localStorage.getItem("camiones"))
-        console.log(camiones)
         camiones.forEach(function(camion){
             
             selectBultoActual = document.getElementById("selectBulto"+element.id)
@@ -513,11 +501,7 @@ fetch(URL+"/bultos")
     
     //select almacen lo llamamos antes
 
-    console.log(bultos)
-
     let selectAsignarBultos = document.getElementsByClassName("selectAsignarBulto")
-
-    console.log(selectAsignarBultos)
 
     bultos.forEach(element => {
 
